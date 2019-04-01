@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class BottomView {
+public class BottomAndTopView {
     public static void main(String[] args) {
 //        Nodesh root = new Nodesh(1);
 //        root.left = new Nodesh(2);
@@ -21,14 +21,39 @@ public class BottomView {
         root.right.right = new Nodesh(25);
         root.left.right.left = new Nodesh(10);
         root.left.right.right = new Nodesh(14);
-        Map<Integer,Integer> map = bottomViewOfTree(root);
-        System.out.println("map = " + map);
-        for (Integer i:map.keySet()
-             ) {
-            System.out.print(map.get(i)+ " ");
-        }
-    }
+        Map<Integer, Integer> map = bottomViewOfTree(root);
+        System.out.println("bottom = " + map);
+        Map<Integer, Integer> topViewmap = topView(root);
+        System.out.println("top = " + topViewmap);
 
+        Nodesh root1 = new Nodesh(1);
+        root1.left = new Nodesh(2);
+        root1.right = new Nodesh(3);
+        root1.left.right = new Nodesh(4);
+        root1.left.right.right = new Nodesh(5);
+        root1.left.right.right.right = new Nodesh(6);
+        Map<Integer, Integer> topViewmap1 = topView(root1);
+        System.out.println("top = " + topViewmap1);
+    }
+    public static Map<Integer,Integer> topView(Nodesh root){
+        Map<Integer,Integer> map = new TreeMap<>();
+        ArrayDeque<Nodesh> dq = new ArrayDeque<>();
+        dq.add(root);
+        root.hd=0;
+        while(!dq.isEmpty()){
+            Nodesh node = dq.pop();
+            map.putIfAbsent(node.hd,node.data);
+            if(node.left!=null){
+                node.left.hd=node.hd-1;
+                dq.add(node.left);
+            }
+            if(node.right!=null){
+                node.right.hd=node.hd+1;
+                dq.add(node.right);
+            }
+        }
+        return map;
+    }
     public static Map<Integer, Integer> bottomViewOfTree(Nodesh root) {
         Map<Integer, Integer> keysToDepth = new TreeMap<Integer, Integer>();
         ArrayDeque<Nodesh> dq = new ArrayDeque<Nodesh>();
