@@ -22,11 +22,12 @@ public class MaximumPathSum {
     public static void  maxPathSumMethod2(Node root,int sum){
         if(root==null)
             return ;
-        if(sum+root.key>globalSum){
-            globalSum=sum+root.key;
+        sum=sum+root.key;
+        if(sum>globalSum){
+            globalSum=sum;
         }
-        maxPathSumMethod2(root.left,sum+root.key);
-        maxPathSumMethod2(root.right,sum+root.key);
+        maxPathSumMethod2(root.left,sum);
+        maxPathSumMethod2(root.right,sum);
         sum=sum-root.key;
     }
 }
