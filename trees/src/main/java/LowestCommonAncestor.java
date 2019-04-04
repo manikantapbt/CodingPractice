@@ -24,11 +24,15 @@ public class LowestCommonAncestor {
 
         System.out.println(LCAByPath(root, 3, 7));
         System.out.println(LCAByPath(root, 1, 3));
+        System.out.println((findLCAG4G(root,3,3)).key);
+        System.out.println((findLCAG4G(root,4,4)).key);
+        System.out.println((findLCAG4G(root,4,999)).key); // this method assumes both the keys are present in tree
+        // if not it will return the key which is present as LCA, if both keys dont exist null will be returned.
     }
 
     public static int LCA(Node root, int a, int b) {
-        if (a == b) return a;
-        // This is practice recursion
+        if (a == b) return a; // returns a even if node is not present in the tree
+        // This is practice for recursion
         // traverse the tree only once to find LCA
         if (root == null) return -1;
         int left = LCA(root.left, a, b);
@@ -58,10 +62,8 @@ public class LowestCommonAncestor {
     public static int LCAByPath(Node root, int a, int b) {
         ArrayList<Integer> pathForA = new ArrayList();
         findPath(root, a, pathForA);
-        System.out.println("pathForA = " + pathForA);
         ArrayList<Integer> pathForB = new ArrayList();
         findPath(root, b, pathForB);
-        System.out.println("pathForB = " + pathForB);
         if (pathForA.isEmpty() || pathForB.isEmpty()) {
             return -1;
         }
@@ -88,5 +90,19 @@ public class LowestCommonAncestor {
         }
         al.remove(al.size() - 1);
         return false;
+    }
+
+    public static Node findLCAG4G(Node root,int a,int b){
+        if(root==null)
+            return null;
+        if(root.key==a||root.key==b){
+            return root;
+        }
+        Node left = findLCAG4G(root.left,a,b);
+        Node right= findLCAG4G(root.right,a,b);
+
+        if(left!=null && right!=null) return root;
+        return (left!=null)?left:right;
+
     }
 }
