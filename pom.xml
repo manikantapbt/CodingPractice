@@ -21,6 +21,7 @@
         <module>miscellaneous</module>
         <module>greedy</module>
         <module>safarids</module>
+        <module>heaps</module>
     </modules>
 
 

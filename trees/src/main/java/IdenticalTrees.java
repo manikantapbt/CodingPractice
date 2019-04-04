@@ -14,7 +14,7 @@ public class IdenticalTrees {
 
         System.out.println(identicalTrees(root,root1));
     }
-    public static boolean identicalTrees(Nodesh nodeFromTree1,Nodesh nodeFromTree2){
+        public static boolean identicalTrees(Nodesh nodeFromTree1,Nodesh nodeFromTree2){
         if(nodeFromTree1==null && nodeFromTree2==null)
             return  true;
         if((nodeFromTree1==null&& nodeFromTree2!=null)|| (nodeFromTree1!=null&& nodeFromTree2==null)){
