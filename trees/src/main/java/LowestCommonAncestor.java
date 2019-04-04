@@ -27,7 +27,7 @@ public class LowestCommonAncestor {
         System.out.println((findLCAG4G(root,3,3)).key);
         System.out.println((findLCAG4G(root,4,4)).key);
         System.out.println((findLCAG4G(root,4,999)).key); // this method assumes both the keys are present in tree
-        // if not it will return the key which is present as LCA, if both keys dont exist null will be returned.
+        // if not, it will return the key which is present as LCA. if both keys dont exist null will be returned.
     }
 
     public static int LCA(Node root, int a, int b) {
