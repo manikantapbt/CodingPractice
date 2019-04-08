@@ -7,7 +7,7 @@ public class SumOfSubsets {
 		long start1 = System.nanoTime();
 		System.out.println(noOfSubsets(arr, sum, arr.length - 1, table));
 		System.out.println("end by dp:"+(System.nanoTime()-start1));
-		
+
 		long start2 = System.nanoTime();
 		System.out.println(noOfSubsets1(arr, sum, arr.length - 1));
 		System.out.println("end by recur:"+(System.nanoTime()-start2));
