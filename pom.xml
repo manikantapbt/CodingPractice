@@ -23,6 +23,7 @@
         <module>safarids</module>
         <module>heaps</module>
         <module>recursion</module>
+        <module>arrays</module>
     </modules>
 
 
