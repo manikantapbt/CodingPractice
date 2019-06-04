@@ -74,20 +74,16 @@ public class KnapSackProblem {
 
     public static int knapSackOwn(int val[], int wt[], int w) {
         int[][] table = new int[wt.length + 1][w + 1];
-        for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < table[0].length; j++) {
-                if (i == 0 || j == 0) {
-                    table[i][j] = 0;
-                }
-                else if(j>=wt[i]){
-                    table[i][j]=Math.max(table[i-1][j],table[i-1][j-wt[i]]+val[i]);
+        for (int i = 1; i < wt.length + 1; i++) {
+            for (int j = 1; j < w + 1; j++) {
+                 if(j>=wt[i-1]){
+                    table[i][j]=Math.max(table[i-1][j],table[i-1][j-wt[i-1]]+val[i-1]);
                 }
                 else{
                     table[i][j]=table[i-1][j];
                 }
             }
         }
-
         return table[wt.length][w];
     }
 }

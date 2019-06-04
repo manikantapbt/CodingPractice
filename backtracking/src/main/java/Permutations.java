@@ -16,7 +16,7 @@ public class Permutations {
     private void permute(String str, int l, int r,PrintWriter printWriter) {
         if (l == r) {
             printWriter.println(str);
-            System.out.println(str);
+           // System.out.println(str);
         } else {
             for (int i = l; i <= r; i++) {
                 str=swap(str,l,i);

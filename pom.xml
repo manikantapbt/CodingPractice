@@ -24,6 +24,10 @@
         <module>heaps</module>
         <module>recursion</module>
         <module>arrays</module>
+        <module>strings</module>
+        <module>linkedlist</module>
+        <module>java8</module>
+        <module>threads</module>
     </modules>
 
 

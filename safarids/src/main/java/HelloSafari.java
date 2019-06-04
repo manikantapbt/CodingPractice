@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class HelloSafari {
+public class    HelloSafari {
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<Integer>();
         arr.add(1);
