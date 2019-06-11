@@ -1,10 +1,12 @@
 public class CoinChangeProblem {
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3 };
-		int sum = 15;
+		int[] arr = { 1, 2, 3 ,4,5,6,7,8,9,10};
+		int sum = 150;
 		int[][] table = new int[arr.length][sum+1];
 		System.out.println(no_of_OutComes_Right(arr,arr.length-1, sum,table));
+		System.out.println(no_of_OutComes_Faster(arr,sum,arr.length-1));
+
 		//System.out.println(noOfOutComesByTableFilling(arr, sum,table));
 	}
 
@@ -35,6 +37,13 @@ public class CoinChangeProblem {
 			table[index][sum]=no_of_OutComes_Right(arr, index - 1, sum,table) + no_of_OutComes_Right(arr, index, sum - arr[index],table);
 			return table[index][sum];
 		}
+	}
+	public static int no_of_OutComes_Faster(int[] a,int sum,int index){
+		if(index==-1) return 0;
+		if(sum<0) return 0;
+		if(sum==0) return 1;
+		else return no_of_OutComes_Faster(a,sum-a[index],index)+no_of_OutComes_Faster(a,sum,index-1);
+
 	}
 
 	public static int noOfOutComesByTableFilling(int[] arr, int sum,int[][] table) {

@@ -69,7 +69,7 @@ class BiCon implements BiConsumer<Integer, Integer>{
 	public void nonStaticMethod(){
 		List<String> s = Arrays.asList("abc","def");
 
-		s.forEach(Clazz::s);//.filter(x-> x.startsWith("d")).forEach(Clazz::s);
+		//.filter(x-> x.startsWith("d")).forEach(Clazz::s);
 	}
 
 	@Override
