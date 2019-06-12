@@ -28,6 +28,7 @@
         <module>linkedlist</module>
         <module>java8</module>
         <module>threads</module>
+        <module>segmenttrees</module>
     </modules>
 
 
