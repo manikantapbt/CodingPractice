@@ -29,6 +29,11 @@
         <module>java8</module>
         <module>threads</module>
         <module>segmenttrees</module>
+        <module>oopsdesign</module>
+        <module>graphs</module>
+        <module>generics</module>
+        <module>queue</module>
+        <module>stacks</module>
     </modules>
 
 
